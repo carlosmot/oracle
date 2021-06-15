@@ -10,10 +10,17 @@ import jakarta.ws.rs.core.Response;
 
 @Path("/disco")
 public class DiscoJSON {
-
+	
+	/*
+	 * 	//Para este ejercicio, habilitar en el pom.xml esta dependencia 
+	 *  que esta comentada(linea 53):
+	 *  <dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-json-binding</artifactId>
+		</dependency>
+	 */
 	
 	@GET
-	@Path("/heavy")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Disco getTrackInJSON() {
 		Disco track = new Disco();
@@ -25,6 +32,14 @@ public class DiscoJSON {
 	@POST
 	@Path("/crear")
 	@Consumes(MediaType.APPLICATION_JSON)
+	//http://localhost:8080/proyecto/rest/disco/crear
+	//En la pestaña Body de RestClient, escoger application/json
+	/*{
+	    "grupo":"Eagles",
+	    "titulo":"On the border"
+	  }
+	*/
+	//Seleccionamos el método POST y lanzamos
 	public Response createTrackInJSON(Disco track) {
 		String result = "Disco guardado: " + track;
 		return Response.status(201).entity(result).build();

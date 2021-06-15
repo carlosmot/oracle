@@ -1,9 +1,14 @@
 package com.pruebas;
 
+
 public class Disco {
 
 	String titulo;
-	String grupo;
+	String grupo;  
+	
+	public Disco() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public String getGrupo() {
 		return grupo;
